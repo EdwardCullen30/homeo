@@ -55,6 +55,15 @@ router.get('/scritLevel',  ensureAuthenticated,(req ,res)=> {
 
 });
 
+router.get('/showbooking', ensureAuthenticated , (req,res)=>{
+    const user=req.user.email;
+    bookg.find({user:user},(err , bookg)=>{
+
+        // console.log(bookg)
+        res.render('showbookg' , {bookglists:bookg})
+    });
+})
+
 router.post('/scritLevel' , ensureAuthenticated, (req, res)=>{
     const critLevel= req.body.critLevel;
 
@@ -138,7 +147,7 @@ router.get('/sHospitaltype',  ensureAuthenticated,(req ,res)=> {
 
 });
 
-router.post('/sHospitaltyep' , ensureAuthenticated , (req ,res)=>{
+router.post('/sHospitaltype' , ensureAuthenticated , (req ,res)=>{
     const sHospitaltype= req.body.sHospitaltype;
 
     console.log(req.user.email);
@@ -157,6 +166,22 @@ router.get('/sTimeslot',  ensureAuthenticated,(req ,res)=> {
     res.render('sTimeslot', {user:req.user})
 
 });
+
+router.post('/sTimeslot' , ensureAuthenticated, (req ,res)=>{
+    const sTimeslot= req.body.sTimeslot;
+
+    console.log(req.user.email);
+    bed.find({tslot:sTimeslot, status:false},(err , results)=>{
+        if(err){
+            console.log(err)
+        }else{
+
+            res.render('beddis' , {results:results, user:req.user})
+
+        }
+    });
+
+})
 
 
 
