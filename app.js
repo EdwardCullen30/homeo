@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
+const dotenv = require('dotenv');
+dotenv.config({ path: '.env' });
 
 
 
@@ -22,7 +24,7 @@ const app = express();
 
 
 //connecting mongodb link
-const MONGODB_URL ='mongodb+srv://EdwardCullen30:123@zwinger2.z4zgy.mongodb.net/intern?retryWrites=true&w=majority&ssl=true';
+const MONGODB_URL =process.env.MONGODB_URL;
 //connecting
 mongoose.connect(MONGODB_URL,  {
     useNewUrlParser: true,
