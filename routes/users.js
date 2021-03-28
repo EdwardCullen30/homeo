@@ -113,18 +113,6 @@ router.post('/bookbed', ensureAuthenticated, async (req, res) => {
     });
     nbookg.save();
 
-    // bed.findOneAndUpdate({
-    //     query:{_id:bedid1} ,
-    //     update: {"$set" :
-    //         {status:true}
-    //     },
-    //
-    // })
-
-    // const Bed = bed.findOne({_id:bedid1})
-    // Bed.status=true ;
-    // // console.log(bedbooked.status = true);
-    // Bed.save();
 
 
     bookg.find({

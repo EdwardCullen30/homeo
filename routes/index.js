@@ -9,16 +9,6 @@ const user = require('../models/user');
 const bed = require('../models/bed');
 const bookg = require('../models/bookg');
 
-// bed.insert({ critLevel:"High",pincode:411039 ,hospital: true , tslot:true }
-// );
-// nbed = new bed({
-//     critLevel: "High",
-//     pincode: 411022,
-//     hospital: false,
-//     tslot: false,
-//     status:false
-// });
-// nbed.save();
 
 
 // Welcome Page
