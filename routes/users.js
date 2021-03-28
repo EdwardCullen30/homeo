@@ -257,12 +257,19 @@ router.post('/bookbed' , ensureAuthenticated , (req,res)=>{
             user:user
 
         });
-        nbookg.save();
-        bed.updateOne({_id:bedid1} , {
-            $set:{status:true}
-        });
-        // const bedbooked = bed.find({_id:bedid1})
-        // console.log(bedbooked.status = true);
+
+        bed.findOneAndUpdate({
+            query:{_id:bedid1} ,
+            update: {"$set" :
+                {status:true}
+            },
+            
+        })
+
+        // const Bed = bed.findOne({_id:bedid1})
+        // Bed.status=true ;
+        // // console.log(bedbooked.status = true);
+        // Bed.save();
 
 
         bookg.find({user:user},(err , bookg)=>{
