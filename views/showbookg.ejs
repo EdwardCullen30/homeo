@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <h1>Hello ,  Please select approprite bed from below</h1>
+    <h1>Hello ,  Below is your bed booked list</h1>
     <ul>
         <% bookglists.forEach(function(bookglist) { %>
 
@@ -23,10 +23,10 @@
         <div class="card" style="width: 18rem;">
             <form method="POST"  action="/users/bookbed">
                 <div class="card-body">
-                    <h5 class="card-title" name="pincode">Pincode : <%= bookglist.bedid %></h5>
+                    
 
 
-                    <h6 class="card-subtitle mb-2 text-muted">ID:</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">ID:<%= bookglist.bedid %> </h6>
                     <div>
                     <input type="hidden" name="bedid" value=<%= bookglist.bedid %>  />
                     </div>
