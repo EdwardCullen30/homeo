@@ -8,6 +8,7 @@ const session = require('express-session');
 const passport = require('passport');
 const dotenv = require('dotenv');
 dotenv.config({ path: '.env' });
+var bodyParser = require('body-parser');
 
 
 
@@ -60,6 +61,10 @@ app.use(function(req, res, next) {
   res.locals.error = req.flash('error');
   next();
 });
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 // EJS
 app.set('view engine', 'ejs');

@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const bookgSchema = new mongoose.Schema({
-    dept: {type:String,unique:true,required: true},
-    data: {type:String}
+    bedid: {type:String,unique:true,required: true},
+    user: {type:String}
 });
 
 const bookg = mongoose.model('bookg', bookgSchema);

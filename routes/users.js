@@ -238,12 +238,48 @@ router.post('/scritLevel' , ensureAuthenticated, (req, res)=>{
         if(err){
             console.log(err)
         }else{
-            console.log(results)
+
+            res.render('beddis' , {results:results, user:req.user})
+
         }
-    })
+    });
+
 
 
 });
+
+router.post('/bookbed' , ensureAuthenticated , (req,res)=>{
+    const bedid1 = req.body.bedid;
+    const user=req.user.email;
+    try{
+        nbookg = new bookg({
+            bedid:bedid1,
+            user:user
+
+        });
+        nbookg.save();
+
+        bed.find({_id:bedid1} ,(err , bed)=>{
+            if(err){
+                console.log(err)
+            }else{
+                bed.status=true;
+            }
+        }) ;
+        bookg.find({user:req.user},(err , bookg)=>{
+            console.log(bookg.bedid)
+            res.render('showbookg' , {bookglist:bookg.bedid})
+        });
+    }catch(e){
+        console.log(e)
+    }
+
+
+
+
+
+
+}) ;
 
 
 router.get('/spincode',  ensureAuthenticated,(req ,res)=> {
