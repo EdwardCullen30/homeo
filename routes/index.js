@@ -12,8 +12,8 @@ const bookg = require('../models/bookg');
 // bed.insert({ critLevel:"High",pincode:411039 ,hospital: true , tslot:true }
 // );
 // nbed = new bed({
-//     critLevel: "Medium",
-//     pincode: 411011,
+//     critLevel: "High",
+//     pincode: 411022,
 //     hospital: false,
 //     tslot: false,
 //     status:false

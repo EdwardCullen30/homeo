@@ -258,17 +258,17 @@ router.post('/bookbed' , ensureAuthenticated , (req,res)=>{
 
         });
         nbookg.save();
+        bed.updateOne({_id:bedid1} , {
+            $set:{status:true}
+        });
+        // const bedbooked = bed.find({_id:bedid1})
+        // console.log(bedbooked.status = true);
 
-        bed.find({_id:bedid1} ,(err , bed)=>{
-            if(err){
-                console.log(err)
-            }else{
-                bed.status=true;
-            }
-        }) ;
-        bookg.find({user:req.user},(err , bookg)=>{
-            console.log(bookg.bedid)
-            res.render('showbookg' , {bookglist:bookg.bedid})
+
+        bookg.find({user:user},(err , bookg)=>{
+
+            // console.log(bookg)
+            res.render('showbookg' , {bookglists:bookg})
         });
     }catch(e){
         console.log(e)
